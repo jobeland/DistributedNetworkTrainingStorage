@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StorageAPI
 {
-    public class ParseProxy
+    public class ParseProxy : IParseProxy 
     {
         private readonly string _networkVersion;
 
