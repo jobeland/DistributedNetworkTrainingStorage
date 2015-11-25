@@ -1,4 +1,5 @@
 ﻿using ArtificialNeuralNetwork;
+using NeuralNetwork.GeneticAlgorithm;
 using Newtonsoft.Json;
 using Parse;
 using System;
@@ -27,10 +28,11 @@ namespace StorageAPI
             await networkParseFormat.SaveAsync();
         }
 
-        public async Task<INeuralNetwork> GetBestNetwork()
+        public async Task<ITrainingSession> GetBestSession()
         {
             var result = await ParseCloud.CallFunctionAsync<ParseObject>("bestNetwork", new Dictionary<string, object> { { "networkVersion", _networkVersion } });
-            return JsonConvert.DeserializeObject<NeuralNetwork>((string)result["jsonNetwork"]);
+            var network = JsonConvert.DeserializeObject<ArtificialNeuralNetwork.NeuralNetwork>((string)result["jsonNetwork"]);
+            return new FakeTrainingSession(network, (double)result["eval"]);
         }
     }
 }
