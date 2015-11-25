@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DistributedNetworkTrainingStorageAPI</id>
+    <version>$version$</version>
+    <title>DistributedNetworkTrainingStorageAPI</title>
+    <authors>jobeland</authors>
+    <owners>jobeland</owners>
+    <licenseUrl>https://raw.githubusercontent.com/jobeland/DistributedNetworkTrainingStorage/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jobeland/DistributedNetworkTrainingStorage</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A wrapper around the Parse API to store and fetch the best updates in a distributed neural network training environment</description>
+    <copyright>Copyright 2015</copyright>
+  </metadata>
+</package>
