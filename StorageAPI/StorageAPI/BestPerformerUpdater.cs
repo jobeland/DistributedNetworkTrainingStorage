@@ -21,7 +21,7 @@ namespace StorageAPI
         public async Task<ITrainingSession> UpdateBestPerformer(IGeneration lastGenerationOfEpoch, int epochNumber)
         {
             var bestPerformer = lastGenerationOfEpoch.GetBestPerformer();
-            await _proxy.StoreNetwork(bestPerformer.NeuralNet, bestPerformer.GetSessionEvaluation());
+            _proxy.StoreNetwork((ArtificialNeuralNetwork.NeuralNetwork)bestPerformer.NeuralNet, bestPerformer.GetSessionEvaluation()).Wait();
             return await _proxy.GetBestSession();
         }
     }
