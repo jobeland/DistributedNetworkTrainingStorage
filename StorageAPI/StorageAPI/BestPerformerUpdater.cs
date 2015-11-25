@@ -18,11 +18,11 @@ namespace StorageAPI
             _proxy = proxy;
         }
 
-        public async Task<ITrainingSession> UpdateBestPerformer(IGeneration lastGenerationOfEpoch, int epochNumber)
+        public ITrainingSession UpdateBestPerformer(IGeneration lastGenerationOfEpoch, int epochNumber)
         {
             var bestPerformer = lastGenerationOfEpoch.GetBestPerformer();
-            _proxy.StoreNetwork((ArtificialNeuralNetwork.NeuralNetwork)bestPerformer.NeuralNet, bestPerformer.GetSessionEvaluation()).Wait();
-            return await _proxy.GetBestSession();
+            _proxy.StoreNetwork((ArtificialNeuralNetwork.NeuralNetwork)bestPerformer.NeuralNet, bestPerformer.GetSessionEvaluation());
+            return _proxy.GetBestSession();
         }
     }
 }

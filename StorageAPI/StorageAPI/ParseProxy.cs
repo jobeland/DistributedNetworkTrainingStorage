@@ -22,7 +22,7 @@ namespace StorageAPI
             ParseClient.Initialize(appId, dotNetKey);
         }
 
-        public async Task StoreNetwork(INeuralNetwork network, double eval)
+        public void StoreNetwork(INeuralNetwork network, double eval)
         {
             var networkParseFormat = new ParseObject(_networkVersion);
             networkParseFormat["jsonNetwork"] = JsonConvert.SerializeObject(network.GetGenes());
@@ -30,7 +30,7 @@ namespace StorageAPI
             networkParseFormat.SaveAsync().Wait();
         }
 
-        public async Task<ITrainingSession> GetBestSession()
+        public ITrainingSession GetBestSession()
         {
             var task = ParseCloud.CallFunctionAsync<ParseObject>("bestNetwork", new Dictionary<string, object> { { "networkVersion", _networkVersion } });
             task.Wait();

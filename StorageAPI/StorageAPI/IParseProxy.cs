@@ -6,7 +6,7 @@ namespace StorageAPI
 {
     public interface IParseProxy
     {
-        Task<ITrainingSession> GetBestSession();
-        Task StoreNetwork(INeuralNetwork network, double eval);
+        ITrainingSession GetBestSession();
+        void StoreNetwork(INeuralNetwork network, double eval);
     }
 }
