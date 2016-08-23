@@ -1,7 +1,6 @@
 ﻿using ArtificialNeuralNetwork;
 using NeuralNetwork.GeneticAlgorithm;
-using System;
-using System.Threading.Tasks;
+
 namespace StorageAPI
 {
     public interface IParseProxy

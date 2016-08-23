@@ -1,11 +1,6 @@
 ﻿using NeuralNetwork.GeneticAlgorithm;
 using NeuralNetwork.GeneticAlgorithm.Evolution;
 using NeuralNetwork.GeneticAlgorithm.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StorageAPI
 {
