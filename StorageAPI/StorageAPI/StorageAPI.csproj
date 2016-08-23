@@ -87,9 +87,8 @@
   <ItemGroup>
     <Compile Include="FakeTrainingSession.cs" />
     <Compile Include="IStorageProxy.cs" />
-    <Compile Include="Proxies\NodeJS\NodeJSProxy.cs" />
-    <Compile Include="Proxies\NodeJS\NodeJsMessage.cs" />
-    <Compile Include="Proxies\Parse\ParseProxy.cs" />
+    <Compile Include="NodeJSProxy.cs" />
+    <Compile Include="NodeJsMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BestPerformerUpdater.cs" />
   </ItemGroup>

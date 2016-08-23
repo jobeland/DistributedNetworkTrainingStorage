@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using ArtificialNeuralNetwork;
@@ -8,7 +7,7 @@ using ArtificialNeuralNetwork.Genes;
 using NeuralNetwork.GeneticAlgorithm;
 using Newtonsoft.Json;
 
-namespace StorageAPI.Proxies.NodeJS
+namespace StorageAPI
 {
     public class NodeJSProxy : IStorageProxy
     {
