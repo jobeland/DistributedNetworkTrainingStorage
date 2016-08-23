@@ -31,9 +31,13 @@ namespace StorageAPI.Proxies.NodeJs
                 var networkEndpoint = _baseUrl + "/network/" + _networkVersion;
                 var response = client.GetAsync(networkEndpoint).Result;
                 var responseObj = response.Content.ReadAsAsync<NodeJsMessage>().Result;
-                var networkGenes = JsonConvert.DeserializeObject<NeuralNetworkGene>(responseObj.NetworkGenes);
+                if (responseObj == null)
+                {
+                    return null;
+                }
+                var networkGenes = JsonConvert.DeserializeObject<NeuralNetworkGene>(responseObj.networkGenes);
                 var network = NeuralNetworkFactory.GetInstance().Create(networkGenes);
-                var session = new FakeTrainingSession(network, responseObj.Eval);
+                var session = new FakeTrainingSession(network, responseObj.eval);
                 return session;
             }
         }
@@ -47,9 +51,13 @@ namespace StorageAPI.Proxies.NodeJs
                 var networkEndpoint = _baseUrl + "/network/" + _networkVersion;
                 var response = await client.GetAsync(networkEndpoint);
                 var responseObj = await response.Content.ReadAsAsync<NodeJsMessage>();
-                var networkGenes = JsonConvert.DeserializeObject<NeuralNetworkGene>(responseObj.NetworkGenes);
+                if (responseObj == null)
+                {
+                    return null;
+                }
+                var networkGenes = JsonConvert.DeserializeObject<NeuralNetworkGene>(responseObj.networkGenes);
                 var network = NeuralNetworkFactory.GetInstance().Create(networkGenes);
-                var session = new FakeTrainingSession(network, responseObj.Eval);
+                var session = new FakeTrainingSession(network, responseObj.eval);
                 return session;
             }
         }
@@ -61,13 +69,14 @@ namespace StorageAPI.Proxies.NodeJs
                 // Replace this with the API key for the web service
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
                 var networkEndpoint = _baseUrl + "/network";
+                var genesJson = JsonConvert.SerializeObject(network.GetGenes());
                 var message = new NodeJsMessage
                 {
-                    Eval = eval,
-                    Version = _networkVersion,
-                    NetworkGenes = network.GetGenes().ToString()
+                    eval = eval,
+                    version = _networkVersion,
+                    networkGenes = genesJson
                 };
-                client.PostAsJsonAsync(networkEndpoint, message).Wait();
+                var result = client.PostAsJsonAsync(networkEndpoint, message).Result;
             }
         }
 
@@ -78,11 +87,12 @@ namespace StorageAPI.Proxies.NodeJs
                 // Replace this with the API key for the web service
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
                 var networkEndpoint = _baseUrl + "/network";
+                var genesJson = JsonConvert.SerializeObject(network.GetGenes());
                 var message = new NodeJsMessage
                 {
-                    Eval = eval,
-                    Version = _networkVersion,
-                    NetworkGenes = network.GetGenes().ToString()
+                    eval = eval,
+                    version = _networkVersion,
+                    networkGenes = genesJson
                 };
                 await client.PostAsJsonAsync(networkEndpoint, message);
             }

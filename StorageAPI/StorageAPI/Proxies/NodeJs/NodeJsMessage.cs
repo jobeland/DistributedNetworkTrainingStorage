@@ -2,8 +2,8 @@
 {
     public class NodeJsMessage
     {
-        public string NetworkGenes { get; set; }
-        public double Eval { get; set; }
-        public int Version { get; set; }
+        public string networkGenes { get; set; }
+        public double eval { get; set; }
+        public int version { get; set; }
     }
 }
