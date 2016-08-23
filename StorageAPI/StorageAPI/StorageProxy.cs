@@ -8,11 +8,11 @@ using System.Collections.Generic;
 
 namespace StorageAPI
 {
-    public class ParseProxy : IParseProxy 
+    public class StorageProxy : IStorageProxy 
     {
         private readonly string _networkVersion;
 
-        public ParseProxy(string networkVersion, string appId, string dotNetKey)
+        public StorageProxy(string networkVersion, string appId, string dotNetKey)
         {
             _networkVersion = networkVersion;
             ParseClient.Initialize(appId, dotNetKey);

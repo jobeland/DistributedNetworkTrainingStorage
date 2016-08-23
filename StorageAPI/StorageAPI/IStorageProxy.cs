@@ -3,7 +3,7 @@ using NeuralNetwork.GeneticAlgorithm;
 
 namespace StorageAPI
 {
-    public interface IParseProxy
+    public interface IStorageProxy
     {
         ITrainingSession GetBestSession();
         void StoreNetwork(INeuralNetwork network, double eval);

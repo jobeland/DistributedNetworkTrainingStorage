@@ -6,9 +6,9 @@ namespace StorageAPI
 {
     public class BestPerformerUpdater : IEpochAction
     {
-        private readonly IParseProxy _proxy;
+        private readonly IStorageProxy _proxy;
 
-        public BestPerformerUpdater(IParseProxy proxy)
+        public BestPerformerUpdater(IStorageProxy proxy)
         {
             _proxy = proxy;
         }
