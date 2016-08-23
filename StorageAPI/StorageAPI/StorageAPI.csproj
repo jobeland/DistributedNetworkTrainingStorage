@@ -87,10 +87,11 @@
   <ItemGroup>
     <Compile Include="FakeTrainingSession.cs" />
     <Compile Include="IStorageProxy.cs" />
-    <Compile Include="NodeJSProxy.cs" />
-    <Compile Include="NodeJsMessage.cs" />
+    <Compile Include="Proxies\NodeJs\NodeJSProxy.cs" />
+    <Compile Include="Proxies\NodeJs\NodeJsMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BestPerformerUpdater.cs" />
+    <Compile Include="Proxies\Parse\ParseProxy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

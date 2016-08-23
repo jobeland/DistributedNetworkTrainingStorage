@@ -1,4 +1,4 @@
-﻿namespace StorageAPI
+﻿namespace StorageAPI.Proxies.NodeJs
 {
     public class NodeJsMessage
     {

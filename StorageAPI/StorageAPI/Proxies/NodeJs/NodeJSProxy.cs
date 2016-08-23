@@ -7,7 +7,7 @@ using ArtificialNeuralNetwork.Genes;
 using NeuralNetwork.GeneticAlgorithm;
 using Newtonsoft.Json;
 
-namespace StorageAPI
+namespace StorageAPI.Proxies.NodeJs
 {
     public class NodeJSProxy : IStorageProxy
     {
