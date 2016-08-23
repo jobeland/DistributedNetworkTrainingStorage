@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("StorageAPI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Acts as an interface ontop of a hosted backend to store/distribute neural network training across multiple computers")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("jobeland")]
 [assembly: AssemblyProduct("StorageAPI")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
