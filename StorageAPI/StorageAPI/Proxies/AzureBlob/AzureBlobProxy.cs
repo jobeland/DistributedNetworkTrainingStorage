@@ -87,7 +87,7 @@ namespace StorageAPI.Proxies.AzureBlob
 
         internal double GetTopEval(CloudBlobContainer container)
         {
-            var stringEvals = GetBlobNamesForDirectory(container, _evalDirectory);
+            var stringEvals = GetBlobNamesForDirectory(container, _evalDirectory + "/" + _version);
             var evals = stringEvals.Select(se => double.Parse(se)).OrderByDescending(e => e).ToList();
             if (!evals.Any())
             {
